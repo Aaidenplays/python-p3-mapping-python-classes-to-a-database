@@ -1,5 +1,6 @@
-from lib import CURSOR
+from lib.__init__ import CURSOR
 from lib.song import Song
+import ipdb
 
 class TestClass:
     '''Class Song in song.py'''
@@ -22,6 +23,7 @@ class TestClass:
             'SELECT * FROM songs WHERE name=? AND album=?',
             ('Hold On', 'Born to Sing')
         ).fetchone()
+        # ipdb.set_trace()
         assert(db_song[1] == song.name and db_song[2] == song.album)
 
     def creates_and_returns_song(self):
